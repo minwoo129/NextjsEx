@@ -5,12 +5,12 @@ import Seo from "../components/Seo";
 
 export default function Home({ results }) {
   const router = useRouter();
-  const onClick = (id) => {
+  const onClick = (id, title) => {
     router.push(
       {
         pathname: `/movies/${id}`,
         query: {
-          title: "potatos",
+          title,
         },
       },
       `/movies/${id}`
@@ -31,7 +31,7 @@ export default function Home({ results }) {
           <div
             className="movie"
             key={movie.id}
-            onClick={() => onClick(movie.id)}
+            onClick={() => onClick(movie.id, movie.original_title)}
           >
             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
             <Link href={`/movies/${movie.id}`}>
