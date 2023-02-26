@@ -6,7 +6,15 @@ import Seo from "../components/Seo";
 export default function Home({ results }) {
   const router = useRouter();
   const onClick = (id) => {
-    router.push(`/movies/${id}`);
+    router.push(
+      {
+        pathname: `/movies/${id}`,
+        query: {
+          title: "potatos",
+        },
+      },
+      `/movies/${id}`
+    );
   };
   const [movies, setMovies] = useState();
   useEffect(() => {
